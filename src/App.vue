@@ -10,22 +10,31 @@
 </template>
 
 <script>
-import { isRef, ref } from "vue";
+import { onBeforeMount, onMounted, ref } from "vue";
 
 export default {
 	setup() {
+		console.log("setup()");
 		const reactiveMessage = ref("Reactive Message");
 
 		const addReactiveMessage = () => {
 			reactiveMessage.value = reactiveMessage.value + "!";
 		};
-		console.log("isRef(reactiveMessage): ", isRef(reactiveMessage));
+		// console.log("isRef(reactiveMessage): ", isRef(reactiveMessage));
 
 		let normalMessage = "Normal Message";
 		const addNormalMessage = () => {
 			normalMessage.value = normalMessage.value + "!";
 		};
-		console.log("isRef(normalMessage): ", isRef(normalMessage));
+		// console.log("isRef(normalMessage): ", isRef(normalMessage));
+
+		onMounted(() => {
+			console.log("onMounted");
+		});
+
+		onBeforeMount(() => {
+			console.log("onBeforeMount");
+		});
 
 		return {
 			reactiveMessage,
