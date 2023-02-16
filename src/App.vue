@@ -5,26 +5,33 @@
 		<button v-on:click="addReactiveMesssage">Add message</button>
 		<h2>일반</h2>
 		<p>{{ normalMessage }}</p>
+		<button v-on:click="addNormalMessage">Add message</button>
 	</div>
 </template>
 
 <script>
-import { ref } from "vue";
+import { isRef, ref } from "vue";
 
 export default {
 	setup() {
 		const reactiveMessage = ref("Reactive Message");
 
-		const addReactiveMesssage = () => {
+		const addReactiveMessage = () => {
 			reactiveMessage.value = reactiveMessage.value + "!";
 		};
+		console.log("isRef(reactiveMessage): ", isRef(reactiveMessage));
 
-		const normalMessage = "Normal Message";
+		let normalMessage = "Normal Message";
+		const addNormalMessage = () => {
+			normalMessage.value = normalMessage.value + "!";
+		};
+		console.log("isRef(normalMessage): ", isRef(normalMessage));
 
 		return {
 			reactiveMessage,
 			normalMessage,
-			addReactiveMesssage,
+			addReactiveMessage,
+			addNormalMessage,
 		};
 	},
 };
