@@ -1,22 +1,30 @@
 <template>
 	<div>
-		<button v-on:click="increment">Counter: {{ counter }}</button>
+		<h2>반응형</h2>
+		<p>{{ reactiveMessage }}</p>
+		<button v-on:click="addReactiveMesssage">Add message</button>
+		<h2>일반</h2>
+		<p>{{ normalMessage }}</p>
 	</div>
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 
 export default {
 	setup() {
-		const counter = ref(0);
-		const increment = () => counter.value++;
-		onMounted(() => {
-			console.log("컴포넌트가 마운트 되었습니다.");
-		});
+		const reactiveMessage = ref("Reactive Message");
+
+		const addReactiveMesssage = () => {
+			reactiveMessage.value = reactiveMessage.value + "!";
+		};
+
+		const normalMessage = "Normal Message";
+
 		return {
-			counter,
-			increment,
+			reactiveMessage,
+			normalMessage,
+			addReactiveMesssage,
 		};
 	},
 };
