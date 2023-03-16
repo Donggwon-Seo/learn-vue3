@@ -1,7 +1,8 @@
 <template>
-	<TheNav></TheNav>
-	<TheView></TheView>
-	<div></div>
+	<div>
+		<TheNav></TheNav>
+		<TheView></TheView>
+	</div>
 </template>
 
 <script>
@@ -9,14 +10,12 @@ import TheNav from "@/components/TheNav.vue";
 import TheView from "@/components/TheView.vue";
 
 export default {
-	components: {
-		TheNav,
-		TheView,
-	},
+	components: { TheView, TheNav },
+
 	setup() {
-		return {};
+		return { TheNav, TheView };
 	},
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

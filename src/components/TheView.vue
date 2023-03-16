@@ -1,31 +1,18 @@
 <template>
 	<main>
-		<div class="container py-4">
-			<!--      @click="sayHello"-->
-			<MyButton
-				class="my-button"
-				id="my-button"
-				@say-hello="sayHello"
-			></MyButton>
-			<LabelInput label="이름" data-id="id입니다"></LabelInput>
-		</div>
+		<ProvideInject></ProvideInject>
 	</main>
 </template>
 
 <script>
-import MyButton from "./MyButton.vue";
-import LabelInput from "./LabelInput.vue";
+import ProvideInject from "@/components/ProvideInject.vue";
 
 export default {
 	components: {
-		MyButton,
-		LabelInput,
+		ProvideInject,
 	},
 	setup() {
-		const sayHello = () => {
-			alert("안녕하세요!");
-		};
-		return { sayHello };
+		return {};
 	},
 };
 </script>
