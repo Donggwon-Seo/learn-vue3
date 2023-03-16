@@ -1,16 +1,14 @@
 <template>
 	<main>
-		<ProvideInject></ProvideInject>
+		<TemplateRefs></TemplateRefs>
 	</main>
 </template>
 
 <script>
-import ProvideInject from "@/components/ProvideInject.vue";
+import TemplateRefs from "./TemplateRefs.vue";
 
 export default {
-	components: {
-		ProvideInject,
-	},
+	components: { TemplateRefs },
 	setup() {
 		return {};
 	},
